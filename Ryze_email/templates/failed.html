@@ -1,0 +1,62 @@
+{{define "content"}}
+<!DOCTYPE html>
+<html lang="en">
+  {{template "header"}}
+  <body>
+    <div
+      style="
+        width: 650px;
+        background-color: rgb(248, 247, 245);
+        margin: 0 auto;
+        border: 1px solid;
+        border-radius: 5px;
+      "
+    >
+      <div
+        style="
+          height: 100px;
+          border: 1px solid;
+          border-radius: 5px 5px 0 0;
+          background-color: #09162d;
+          text-align: center;
+        "
+      >
+        <img src="./logo.png" alt="tongfangyouyun" style="margin: 20px auto" />
+      </div>
+      <div style="width: 550px; margin: 0 auto">
+        <h2 style="margin: 0; padding-top: 30px">尊敬的用户，您好！</h2>
+        <p>
+          很遗憾，您的注册信息未能通过管理员的审批验证，您可以返回注册页面确认自己的
+          注册信息是否填写完整，重新发起注册申请，感谢您的注册使用
+        </p>
+        <p
+          style="
+            font-size: 1.5em;
+            text-align: center;
+            font-weight: bold;
+            margin: 50px 0;
+          "
+        >
+          注册失败！
+        </p>
+        <a
+          href="{{.FailURL}}"
+          style="
+            display: block;
+            width: 150px;
+            padding: 10px 32px;
+            text-decoration: none;
+            margin: 0 auto;
+            text-align: center;
+            background-color: rgb(233, 4, 4);
+            color: white;
+          "
+        >
+          返回注册</a
+        >
+      </div>
+      {{template "footer"}}
+    </div>
+  </body>
+</html>
+{{end}}

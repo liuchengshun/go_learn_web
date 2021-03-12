@@ -1,0 +1,69 @@
+{{define "content"}}
+<!DOCTYPE html>
+<html lang="en">
+  {{template "header"}}
+  <body>
+    <!-- content -->
+    <div
+      style="
+        width: 650px;
+        background-color: rgb(248, 247, 245);
+        margin: 0 auto;
+        border: 1px solid;
+        border-radius: 5px;
+      "
+    >
+      <div
+        style="
+          height: 100px;
+          border: 1px solid;
+          border-radius: 5px 5px 0 0;
+          background-color: #09162d;
+          text-align: center;
+        "
+      >
+        <img src="./logo.png" alt="tongfangyouyun" style="margin: 20px auto" />
+      </div>
+      <div
+        style="
+          width: 550px;
+          margin: 0 auto;
+          font-family: '微软雅黑', Helvetica, sans-serif;
+        "
+      >
+        <h2 style="margin: 0; padding-top: 30px">尊敬的管理员用户，您好！</h2>
+        <p>
+          您最新收到如下的注册申请，请您及时认真审核并登录平台予以确认。感谢您的配合。
+        </p>
+        <table style="margin: 30px 0;">
+          <tr>
+            <th>用户名：</th>
+            <td style="font-size: medium">{{ .UserMsg.UserName }}</td>
+          </tr>
+          <tr>
+            <th><span>电话：</span></th>
+            <td style="font-size: medium">{{ .UserMsg.Phone }}</td>
+          </tr>
+          <tr>
+            <th>邮箱：</th>
+            <td style="font-size: medium">{{ .UserMsg.Email }}</td>
+          </tr>
+          <tr>
+            <th>公司：</th>
+            <td style="font-size: medium">{{ .UserMsg.Company }}</td>
+          </tr>
+        </table>
+        <a
+          href="{{.UserMsg.CheckURL}}"
+          style="word-wrap: break-word; text-decoration: none; color: #1584ed"
+          >sdfalksdflasnd;lgknasldfl;asjdf;lajssdfasdfasdfasdgasgvcxzbaddlkvcxlvmasdlfglaksjdg;jlakjsdgas</a
+        >
+        <p style="margin-top: 25px">
+          如果以上链接无法打开，请把上面网页地址复制到浏览器地址栏中打开（该链接在24小时内有效）
+        </p>
+      </div>
+      {{ template "footer"}}
+    </div>
+  </body>
+</html>
+{{end}}

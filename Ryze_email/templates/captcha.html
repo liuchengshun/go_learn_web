@@ -1,0 +1,49 @@
+{{define "content"}}
+<!DOCTYPE html>
+<html lang="en">
+  {{template "header"}}
+  <body>
+    <div
+      style="
+        width: 650px;
+        background-color: rgb(248, 247, 245);
+        margin: 0 auto;
+        border: 1px solid;
+        border-radius: 5px;
+      "
+    >
+      <div
+        style="
+          height: 100px;
+          border: 1px solid;
+          border-radius: 5px 5px 0 0;
+          background-color: #09162d;
+          text-align: center;
+        "
+      >
+        <img src="./logo.png" alt="tongfangyouyun" style="margin: 20px auto" />
+      </div>
+      <div style="width: 550px; margin: 0 auto">
+        <h2 style="margin: 0; padding-top: 30px">尊敬的用户，您好！</h2>
+        <p>
+          您收到的验证码如下（<span style="font-weight: bold"
+            >请勿将此验证码转发或提供给任何人。</span
+          >）
+        </p>
+        <p
+          style="
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 4em;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+          "
+        >
+          {{.Captcha}}
+        </p>
+      </div>
+      {{template "footer"}}
+    </div>
+  </body>
+</html>
+{{end}}
