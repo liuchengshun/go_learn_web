@@ -2,26 +2,29 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"net/http"
-	// "regexp"
+	"regexp"
+	"strconv"
 )
 
 func main() {
-	// 发出get请求
-	resp, err := http.Get("https://www.baidu.com")
-	if err != nil {
-		fmt.Println("the error of http get:", err)
-		return
+	searchIn := "John: 2578.34 William: 4567.23 Steve: 5632.18"
+	pat := "[0-9]+.[0-9]+" //正则
+
+	f := func(s string) string{
+    	v, _ := strconv.ParseFloat(s, 32)
+    	return strconv.FormatFloat(v * 2, 'f', 2, 32)
 	}
-	defer resp.Body.Close()
-	// 读取数据流
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		fmt.Println("the error of read response:", err)
-		return
+
+	if ok, _ := regexp.Match(pat, []byte(searchIn)); ok {
+    fmt.Println("Match Found!")
 	}
-	// 将body转换为string
-	src := string(body)
+
+	re, _ := regexp.Compile(pat)
+	//将匹配到的部分替换为"##.#"
+	str := re.ReplaceAllString(searchIn, "##.#")
+	fmt.Println(str)
+	//参数为函数时
+	str2 := re.ReplaceAllStringFunc(searchIn, f)
+	fmt.Println(str2)
 
 }
